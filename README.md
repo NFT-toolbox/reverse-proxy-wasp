@@ -12,9 +12,7 @@ application.
 ## Installation
 1. [Install docker-compose](https://docs.docker.com/compose/install/#install-compose).
 
-2. Clone this repository: `git clone https://github.com/wmnnd/nginx-certbot.git .`
-
-3. Modify configuration:
+2. Modify configuration:
 - Add domains and email addresses to init-letsencrypt.sh
 - Replace all occurrences of example.org with primary domain (the first one you added to init-letsencrypt.sh_template) in data/nginx/app.conf_template
 ```
@@ -24,13 +22,16 @@ sed 's/example.com/yoursubdomain.yourdomain.com/g' data/nginx/app.conf_template 
 
 ```
 
-4. Run the init script:
+3. Run the init script:
 
         ./init-letsencrypt.sh
 
-5. Run the server:
+4. Run the server:
 
-        docker-compose up
+        docker-compose up -d
+        
+5. Verify that ports 80 and 443 are open
+6. Run the gohornet node 
 
 ## Got questions?
 Feel free to post questions in the comment section of the [accompanying guide](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
